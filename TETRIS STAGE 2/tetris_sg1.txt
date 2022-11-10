@@ -1,0 +1,82 @@
+// interface world
+import java.awt.Graphics; 
+
+interface World 
+{
+  public boolean hasEnded(); 
+  public void update(); 
+  public void draw(Graphics g); 
+  public void keyPressed(String what); 
+}
+
+// Tetris
+import java.awt.Graphics;
+import javax.swing.Timer;
+
+public class Tetris implements World
+{
+	int count = 0;
+	
+	public void update()
+	{
+		this.count = this.count + 1;
+		System.out.println("I am getting older... " + count);
+	}
+	
+	public boolean hasEnded()
+	{
+		return false;
+	}
+	
+	public void draw(Graphics g)
+	{
+		g.drawString("welcome to tetris", 50, 50);
+		g.drawString("");
+	}
+	
+	public void keyPressed(String what)
+	{
+	
+	}
+	
+	public static void main(String[] args)
+	{
+		BigBang a = new BigBang(new Tetris());
+		a.start();
+	}
+}
+
+// BigBang
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.Timer;
+
+public class BigBang
+{
+	Timer timer;
+	World world;
+	
+	public BigBang(World world)
+	{
+		this.world = world;
+		this.timer = new Timer(1000, this);
+	}
+	
+	public void start()
+	{
+		this.timer.start();
+	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		this.world.update();
+	}
+
+}
+
+//
+import java.awt.Graphics;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+

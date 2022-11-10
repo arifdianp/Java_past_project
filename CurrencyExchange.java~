@@ -1,0 +1,14 @@
+import java.util.*;
+public class CurrencyExchange
+{
+  public static void main(String[] args)
+  {    
+    System.out.println("Please enter the amount of dollars: $ ");
+    Scanner a = new Scanner(System.in);
+    int a1 = a.nextint();
+    System.out.println("Please enter the exchange rate to japanese yen: ");
+    Scanner b = new Scanner(System.in);
+    int b1 = b.nextint();
+    System.out.println("You receive  ?¥?" + (a1*b1);
+  }
+}
